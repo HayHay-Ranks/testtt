@@ -136,36 +136,6 @@ background-repeat: no-repeat;
       document.querySelector('link[rel="icon"]').href = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/1186px-Google_Classroom_Logo.svg.png";
     };
 
-    document.getElementById("launchChatroom").onclick = function() {
-      document.body.innerHTML = '';
-      var passText = document.createElement("p");
-      passText.textContent = "oops";
-      passText.style.color = "#fff";
-      passText.style.marginTop = "20px";
-      document.body.appendChild(passText);
-
-      var copyButton = document.createElement("button");
-      copyButton.textContent = "oops";
-      copyButton.className = "button";
-      copyButton.onclick = function() {
-        var pass = "oops";
-        navigator.clipboard.writeText(pass).then(function() {
-          alert("Copied");
-        }, function() {
-          alert("Failed to copy password to clipboard.");
-        });
-      };
-      document.body.appendChild(copyButton);
-
-      var continueButton = document.createElement("button");
-      continueButton.textContent = "Download Eagler";
-      continueButton.className = "button";
-      continueButton.onclick = function() {
-        document.body.innerHTML = '<object id="chatroomFrame" type="text/html" data="https://eaglercraft.com/mc/1.8.8" style="width: 100%; height: 100vh;"></object>';
-      };
-      document.body.appendChild(continueButton);
-    };
-
     // getting into the games (you can edit them and change the websites, but only some work.)
     document.getElementById("launchGames").onclick = function() {
       document.body.innerHTML = "";
@@ -175,7 +145,8 @@ background-repeat: no-repeat;
                   { name: "1v1.lol Old", url: "https://1v1.school" },
                       { name: "Browser", url: "https://browserling.com" },
           { name: "Skribbl.io", url: "https://skribbl.io" },
- 
+          { name: "Drift Hunters", url: "https://static.hahagames.com/game/2023/02/25/d2b27a69-567d-4fe0-8615-8f4e2337d8c4/" },
+
           { name: "Funny Shooter 2", url: "https://html5.gamedistribution.com/rvvASMiM/a1b7ac4025214a5cb0bd01a4f675513a/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ffunny-shooter-2&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvZnVubnktc2hvb3Rlci0yIiwicGFyZW50RG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsInRvcERvbWFpbiI6ImhhaGFnYW1lcy5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" },
           { name: "Time Shooter 3", url: "https://html5.gamedistribution.com/rvvASMiM/6493b872f0564380a7adad671d1e0a57/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ftime-shooter-3%3A-swat&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvdGltZS1zaG9vdGVyLTM6LXN3YXQiLCJwYXJlbnREb21haW4iOiJoYWhhZ2FtZXMuY29tIiwidG9wRG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsImhhc0ltcHJlc3Npb24iOmZhbHNlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE3In0%253D" },
           { name: "Pixel Shooter", url: "https://app-215632.games.s3.yandex.net/215632/2l6gf6mpiczu0hnbw8dxvxnp50jioafk/index.html?is-united-page=1&skip-guard=1&header=no&clid=4865623&flags=%7B%22adv_sticky_banner_disabled%22%3Atrue%7D&sdk=%2Fsdk%2F_%2Fv2.cee7c958a9eca93a3ec0.js#origin=https%3A%2F%2Fplayhop.com&app-id=215632&device-type=desktop" },
