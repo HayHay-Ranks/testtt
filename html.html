@@ -180,8 +180,7 @@ background-repeat: no-repeat;
  
           { name: "Funny Shooter 2", url: "https://html5.gamedistribution.com/rvvASMiM/a1b7ac4025214a5cb0bd01a4f675513a/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ffunny-shooter-2&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvZnVubnktc2hvb3Rlci0yIiwicGFyZW50RG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsInRvcERvbWFpbiI6ImhhaGFnYW1lcy5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" },
           { name: "Time Shooter 3", url: "https://html5.gamedistribution.com/rvvASMiM/6493b872f0564380a7adad671d1e0a57/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ftime-shooter-3%3A-swat&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvdGltZS1zaG9vdGVyLTM6LXN3YXQiLCJwYXJlbnREb21haW4iOiJoYWhhZ2FtZXMuY29tIiwidG9wRG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsImhhc0ltcHJlc3Npb24iOmZhbHNlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE3In0%253D" },
-          { name: "Movies and TV", url: "https://premiumembeding.cloud/v2/embed-4/p5MzSWUlD5jo?_debug=true" },
-
+          { name: "Pixel Shooter", url: "https://app-215632.games.s3.yandex.net/215632/2l6gf6mpiczu0hnbw8dxvxnp50jioafk/index.html?is-united-page=1&skip-guard=1&header=no&clid=4865623&flags=%7B%22adv_sticky_banner_disabled%22%3Atrue%7D&sdk=%2Fsdk%2F_%2Fv2.cee7c958a9eca93a3ec0.js#origin=https%3A%2F%2Fplayhop.com&app-id=215632&device-type=desktop" },
           { name: "Minecraft", url: "https://eaglercraft-archive.github.io/Koneclient-1.8-web/" },
           { name: "Resent Client Eagler", url: "https://reslauncher4.vercel.app" },
           { name: "FNAW", url: "https://g.deev.is/fnaw" },
@@ -281,7 +280,13 @@ background-repeat: no-repeat;
           document.body.innerHTML = '<object id="chatGPTFrame" type="text/html" data="https://chatgptfree.ai/chat/" style="width: 100%; height: 100vh;"></object>';
         };
         document.body.appendChild(chatGPTButton);
-
+        var marioButton = document.createElement("button");
+        marioButton.textContent = "Mario Movie";
+        marioButton.className = "button";
+        marioButton.onclick = function() {
+          document.body.innerHTML = '<object id="marioFrame" type="text/html" data="https://premiumembeding.cloud/v2/embed-4/p5MzSWUlD5jo?_debug=true" style="width: 100%; height: 100vh;"></object>';
+        };
+        document.body.appendChild(marioButton);
 	 // Adding the Meow Camera button
         var MeowCameraButton = document.createElement("button");
         MeowCameraButton.textContent = "MeowCamera";
