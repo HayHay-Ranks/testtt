@@ -59,13 +59,10 @@ background-repeat: no-repeat;
 <body>
 <h1>Testing Website</h1>
 <button id="tabCloak" class="button">Rename Tab</button>
-
 <button id="launchShooting" class="button">Shooting</button>
 <button id="launchDriving" class="button">Driving</button>
 <button id="launchGames" class="button">Other Games</button>
-
 <button id="launchApps" class="button">Apps</button>
-<button id="ruffleButton" class="button hidden">Ruffle</button>
 
 <script>
   // Function to render the main screen (home screen)
@@ -77,7 +74,6 @@ background-repeat: no-repeat;
       <button id="launchDriving" class="button">Driving</button>
       <button id="launchGames" class="button">Other Games</button>
       <button id="launchApps" class="button">Apps</button>
-      <button id="ruffleButton" class="button hidden">Ruffle</button>
     `;
 
     // Re-attach the click handlers to the buttons
@@ -86,62 +82,13 @@ background-repeat: no-repeat;
       document.querySelector('link[rel="icon"]').href = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/1186px-Google_Classroom_Logo.svg.png";
     };
 
-    document.getElementById("launchGames").onclick = function() {
-      createGameButtons(); // Go to the game list screen
-    };
-
-    // Add more event handlers for other buttons (Shooting, Driving, Apps) if necessary
+    // Attach click event handlers to each button
+    document.getElementById("launchShooting").onclick = loadShootingGames;
+    document.getElementById("launchDriving").onclick = loadDrivingGames;
+    document.getElementById("launchApps").onclick = loadApps;
   }
 
-  // Function to create the game buttons
-  function createGameButtons() {
-    document.body.innerHTML = ''; // Clear everything first
-
-    var container = document.createElement("div");
-    container.setAttribute("id", "gamesContainer");
-    document.body.appendChild(container);
-
-    var games = [
-      { name: "Skribbl.io", url: "https://skribbl.io" },
-      { name: "Minecraft", url: "https://eaglercraft-archive.github.io/Koneclient-1.8-web/" },
-      { name: "Resent Client Eagler", url: "https://reslauncher4.vercel.app" },
-      { name: "Paper.io 2", url: "https://paperio.site/index-gm.php?gamedomain=hahagames.com9" },
-      { name: "FNAW", url: "https://g.deev.is/fnaw" },
-      { name: "Neal.fun", url: "https://neal.fun" },
-      { name: "Subway Surfers", url: "https://dddavit.github.io/subway/" },
-      { name: "Slope", url: "https://mathadventure1.github.io/slope/slope/index.html" },
-      { name: "Cookie Clicker", url: "https://eli-schwartz.github.io/cookieclicker/" }
-      // Add other games here
-    ];
-
-    games.forEach(function(game) {
-      var button = document.createElement("button");
-      button.textContent = game.name;
-      button.className = "button";
-      button.onclick = function() {
-        loadGame(game);
-      };
-      container.appendChild(button);
-    });
-
-    createReturnButton(); // Show return button when on game list screen
-  }
-
-  // Function to load the selected game and show the return button
-  function loadGame(game) {
-    document.body.innerHTML = ''; // Clear the body content
-    var objectTag = document.createElement("object");
-    objectTag.setAttribute("id", game.name.replace(/ /g, "") + "Frame");
-    objectTag.setAttribute("type", "text/html");
-    objectTag.setAttribute("data", game.url);
-    objectTag.style.width = "100%";
-    objectTag.style.height = "100vh";
-    document.body.appendChild(objectTag);
-
-    createReturnButton(); // Show return button when inside a game
-  }
-
-  // Function to create the return button
+  // Function to create and show return button
   function createReturnButton() {
     var returnButton = document.createElement("button");
     returnButton.textContent = "Return to Main Screen";
@@ -149,148 +96,111 @@ background-repeat: no-repeat;
     returnButton.style.position = "fixed";
     returnButton.style.bottom = "10px";
     returnButton.style.left = "10px";
-    returnButton.style.zIndex = "1000"; // Ensure it stays on top of other content
-    returnButton.style.padding = "10px"; // Add some padding for better visibility
-    returnButton.style.backgroundColor = "#f0f0f0"; // Optional: Style the button background
-    returnButton.onclick = function() {
-      createMainScreen(); // Return to the main screen
-    };
-    document.body.appendChild(returnButton); // Append the return button to the body
+    returnButton.style.zIndex = "1000";
+    returnButton.style.padding = "10px";
+    returnButton.style.backgroundColor = "#f0f0f0";
+    returnButton.onclick = createMainScreen;
+    document.body.appendChild(returnButton);
+  }
+
+  // Function to load shooting games
+  function loadShootingGames() {
+    document.body.innerHTML = "";
+    setTimeout(function() {
+      var games = [
+        { name: "1v1.lol New", url: "https://1v1.lol" },
+        { name: "1v1.lol Old", url: "https://1v1.school" },
+        { name: "Funny Shooter 2", url: "https://html5.gamedistribution.com/rvvASMiM/a1b7ac4025214a5cb0bd01a4f675513a/index.html" },
+        { name: "Time Shooter 3", url: "https://html5.gamedistribution.com/rvvASMiM/6493b872f0564380a7adad671d1e0a57/index.html" },
+        { name: "Pixel Shooter", url: "https://app-215632.games.s3.yandex.net/215632/2l6gf6mpiczu0hnbw8dxvxnp50jioafk/index.html" },
+        { name: "Venge.io", url: "https://venge.io/" },
+        { name: "Krunker.io", url: "https://krunker.io/" },
+      ];
+      var container = document.createElement("div");
+      container.setAttribute("id", "gamesContainer");
+      document.body.appendChild(container);
+
+      games.forEach(function(game) {
+        var button = document.createElement("button");
+        button.textContent = game.name;
+        button.className = "button";
+        button.onclick = function() {
+          document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
+        };
+        container.appendChild(button);
+      });
+
+      createReturnButton(); // Show return button
+    }, 1000);
+  }
+
+  // Function to load driving games
+  function loadDrivingGames() {
+    document.body.innerHTML = "";
+    setTimeout(function() {
+      var games = [
+        { name: "Edys Car Simulator", url: "https://unblocked-games.s3.amazonaws.com/edys-car-simulator.html" },
+        { name: "Drift Hunters", url: "https://static.hahagames.com/game/2023/02/25/d2b27a69-567d-4fe0-8615-8f4e2337d8c4/" },
+        { name: "Slow Roads", url: "https://slowroads.io" },
+        { name: "Drive Mad", url: "https://ubg365.github.io/drive-mad/play.html" },
+        { name: "Drive Mad Mod", url: "https://play.fancade.com/63BA239C20C40BF3" },
+        { name: "Drift Boss", url: "https://ubg365.github.io/drift-boss/" },
+        { name: "Madalin Stunt Cars 2", url: "https://ubg100.github.io/games/Madalin/index.html" },
+        { name: "Hover Racer Drive", url: "https://ubg365.github.io/hover-racer-drive/" },
+        { name: "Highway Racer Pro", url: "https://unblocked-games.s3.amazonaws.com/highway-racer-pro.html" },
+      ];
+      var container = document.createElement("div");
+      container.setAttribute("id", "gamesContainer");
+      document.body.appendChild(container);
+
+      games.forEach(function(game) {
+        var button = document.createElement("button");
+        button.textContent = game.name;
+        button.className = "button";
+        button.onclick = function() {
+          document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
+        };
+        container.appendChild(button);
+      });
+
+      createReturnButton(); // Show return button
+    }, 1000);
+  }
+
+  // Function to load apps
+  function loadApps() {
+    document.body.innerHTML = "";
+    setTimeout(function() {
+      var apps = [
+        { name: "Online Website (3 MIN UNBLOCKED)", url: "https://browserling.com" },
+        { name: "Kahoot.rocks", url: "https://kahoot.rocks/" },
+        { name: "ChatGPT", url: "https://chatgptfree.ai/chat/" },
+        { name: "Mario Movie", url: "https://premiumembeding.cloud/v2/embed-4/p5MzSWUlD5jo?_debug=true" },
+        { name: "MeowCamera", url: "https://meow.camera/viewer/" },
+        { name: "FreezeNova", url: "https://unblocked-games.s3.amazonaws.com/index.html" },
+        { name: "Emulator", url: "https://demo.emulatorjs.org/" },
+      ];
+
+      var container = document.createElement("div");
+      container.setAttribute("id", "appsContainer");
+      document.body.appendChild(container);
+
+      apps.forEach(function(app) {
+        var button = document.createElement("button");
+        button.textContent = app.name;
+        button.className = "button";
+        button.onclick = function() {
+          document.body.innerHTML = '<object id="' + app.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + app.url + '" style="width: 100%; height: 100vh;"></object>';
+        };
+        container.appendChild(button);
+      });
+
+      createReturnButton(); // Show return button
+    }, 1000);
   }
 
   // Initialize the main screen when the page loads
   createMainScreen();
-    document.getElementById("launchShooting").onclick = function() {
-      document.body.innerHTML = "";
-      setTimeout(function() {
-        var games = [
-              { name: "1v1.lol New", url: "https://1v1.lol" },
-                  { name: "1v1.lol Old", url: "https://1v1.school" },
-
-          { name: "Funny Shooter 2", url: "https://html5.gamedistribution.com/rvvASMiM/a1b7ac4025214a5cb0bd01a4f675513a/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ffunny-shooter-2&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvZnVubnktc2hvb3Rlci0yIiwicGFyZW50RG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsInRvcERvbWFpbiI6ImhhaGFnYW1lcy5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" },
-          { name: "Time Shooter 3", url: "https://html5.gamedistribution.com/rvvASMiM/6493b872f0564380a7adad671d1e0a57/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ftime-shooter-3%3A-swat&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvdGltZS1zaG9vdGVyLTM6LXN3YXQiLCJwYXJlbnREb21haW4iOiJoYWhhZ2FtZXMuY29tIiwidG9wRG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsImhhc0ltcHJlc3Npb24iOmZhbHNlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE3In0%253D" },
-          { name: "Pixel Shooter", url: "https://app-215632.games.s3.yandex.net/215632/2l6gf6mpiczu0hnbw8dxvxnp50jioafk/index.html?is-united-page=1&skip-guard=1&header=no&clid=4865623&flags=%7B%22adv_sticky_banner_disabled%22%3Atrue%7D&sdk=%2Fsdk%2F_%2Fv2.cee7c958a9eca93a3ec0.js#origin=https%3A%2F%2Fplayhop.com&app-id=215632&device-type=desktop" },
-
-         
-          { name: "Venge.io", url: "https://venge.io/" },
-          
-          { name: "Krunker.io", url: "https://krunker.io/" },
-          
-    ];
-        var container = document.createElement("div");
-        container.setAttribute("id", "gamesContainer");
-        document.body.appendChild(container);
-
-        games.forEach(function(game) {
-          var button = document.createElement("button");
-          button.textContent = game.name;
-          button.className = "button";
-          button.onclick = function() {
-            document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
-          };
-          container.appendChild(button);
-        });
-      }, 1000);
-    };
-    document.getElementById("launchDriving").onclick = function() {
-      document.body.innerHTML = "";
-      setTimeout(function() {
-        var games = [
-      { name: "Edys Car Simulator", url: "https://unblocked-games.s3.amazonaws.com/edys-car-simulator.html" },
-      { name: "Drift Hunters", url: "https://static.hahagames.com/game/2023/02/25/d2b27a69-567d-4fe0-8615-8f4e2337d8c4/" },
-      { name: "Slow Roads", url: "https://slowroads.io" },
-      { name: "Drive Mad", url: "https://ubg365.github.io/drive-mad/play.html" },
-      { name: "Drive Mad Mod", url: "https://play.fancade.com/63BA239C20C40BF3" }, 
-                    { name: "Drift Boss", url: "https://ubg365.github.io/drift-boss/" },
-          { name: "Madalin Stunt Cars 2", url: "https://ubg100.github.io/games/Madalin/index.html" },
-              { name: "Hover Racer Drive", url: "https://ubg365.github.io/hover-racer-drive/" },
-          { name: "Highway Racer Pro", url: "https://unblocked-games.s3.amazonaws.com/highway-racer-pro.html" }, 
-
-    ];
-        var container = document.createElement("div");
-        container.setAttribute("id", "gamesContainer");
-        document.body.appendChild(container);
-
-        games.forEach(function(game) {
-          var button = document.createElement("button");
-          button.textContent = game.name;
-          button.className = "button";
-          button.onclick = function() {
-            document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
-          };
-          container.appendChild(button);
-        });
-      }, 1000);
-    };
-    document.getElementById("launchApps").onclick = function() {
-      document.querySelectorAll('.button').forEach(function(button) {
-        button.classList.add('hidden');
-      });
-      document.querySelectorAll('h1, #randomPhrase').forEach(function(element) {
-        element.classList.add('hidden');
-      });
-      setTimeout(function() {
-        // Adding the Kahoot.rocks button
-            // Adding the ChatGPT button
-        var websiteButton = document.createElement("button");
-        websiteButton.textContent = "Online Website (3 MIN UNBLOCKED)";
-        websiteButton.className = "button";
-        websiteButton.onclick = function() {
-          document.body.innerHTML = '<object id="websiteFrame" type="text/html" data="https://browserling.com" style="width: 100%; height: 100vh;"></object>';
-        };
-        document.body.appendChild(websiteButton);
-        var kahootRocksButton = document.createElement("button");
-        kahootRocksButton.textContent = "Kahoot.rocks";
-        kahootRocksButton.className = "button";
-        kahootRocksButton.onclick = function() {
-          document.body.innerHTML = '<object id="kahootRocksFrame" type="text/html" data="https://kahoot.rocks/" style="width: 100%; height: 100vh;"></object>';
-        };
-        document.body.appendChild(kahootRocksButton);
-
-        // Adding the ChatGPT button
-        var chatGPTButton = document.createElement("button");
-        chatGPTButton.textContent = "ChatGPT";
-        chatGPTButton.className = "button";
-        chatGPTButton.onclick = function() {
-          document.body.innerHTML = '<object id="chatGPTFrame" type="text/html" data="https://chatgptfree.ai/chat/" style="width: 100%; height: 100vh;"></object>';
-        };
-        document.body.appendChild(chatGPTButton);
-        var marioButton = document.createElement("button");
-        marioButton.textContent = "Mario Movie";
-        marioButton.className = "button";
-        marioButton.onclick = function() {
-          document.body.innerHTML = '<object id="marioFrame" type="text/html" data="https://premiumembeding.cloud/v2/embed-4/p5MzSWUlD5jo?_debug=true" style="width: 100%; height: 100vh;"></object>';
-        };
-        document.body.appendChild(marioButton);
-	 // Adding the Meow Camera button
-        var MeowCameraButton = document.createElement("button");
-        MeowCameraButton.textContent = "MeowCamera";
-        MeowCameraButton.className = "button";
-        MeowCameraButton.onclick = function() {
-          document.body.innerHTML = '<object id="chatGPTFrame" type="text/html" data="https://meow.camera/viewer/" style="width: 100%; height: 100vh;"></object>';
-        };
-        document.body.appendChild(chatGPTButton);
-    // Adding the FreezeNova button
-        var FreezeNova = document.createElement("button");
-        FreezeNova.textContent = "FreezeNova";
-        FreezeNova.className = "button";
-        FreezeNova.onclick = function() {
-          document.body.innerHTML = '<object id="FreezeNovaFrame" type="text/html" data="https://unblocked-games.s3.amazonaws.com/index.html" style="width: 100%; height: 100vh;"></object>';
-        };
-        document.body.appendChild(FreezeNova);
-
-        // Adding the Emulator button
-        var emulatorButton = document.createElement("button");
-        emulatorButton.textContent = "Emulator";
-        emulatorButton.className = "button";
-        emulatorButton.onclick = function() {
-          document.body.innerHTML = '<object id="emulatorFrame" type="text/html" data="https://demo.emulatorjs.org/" style="width: 100%; height: 100vh;"></object>';
-        };
-        document.body.appendChild(emulatorButton);
-
-
-      }, 1000);
-    };
 
     document.getElementById("continueButton").onclick = function() {
       document.querySelectorAll('.button, h1, #randomPhrase, #instructions').forEach(function(element) {
