@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChattyWebsite</title>
+  <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/1186px-Google_Classroom_Logo.svg.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #005;
+      color: #0000FF;
+      font-family: Courier Ne, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 50px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00008B;
+      color: #00FFFF;
+      border: 2px solid #00FFFF; 
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+     font-family: Tahoma, sans-serif;
+    }
+    .button:hover {
+      background-color: #00FFFF; 
+      color: #000;
+    }
+    #randomPhrase {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+<style>
+body {
+  background-image: url('data:image/jpeg;base64,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');
+background-repeat: no-repeat;
+  background-size: 100%
+  }
+</style>
+    
+    
+    </head>
+<body>
+  <h1>funny</h1>
+  <button id="tabCloak" class="button">Tab cloak</button>
+  <button id="launchChatroom" class="button">WIP</button>
+  <button id="launchGames" class="button">Games</button>
+  <button id="launchApps" class="button">Apps</button>
+  <div id="randomPhrase"></div>
+  <div id="instructions" class="hidden">
+    <h2>READ THIS</h2>
+    <p>This is a huge work in progress. If anything gets blocked, follow these steps:<br>Restart your device ( Make sure the screen turns black, do power button + refresh key on chromebook )<br>DON'T restore tabs, open this file again, and nothing should be blocked. If it's still blocked, play the games and apps because they can't be blocked.<br>Sorry for the yapping, thanks :D - British Man</p>
+    <button id="continueButton" class="button">Continue</button>
+  </div>
+  <button id="ruffleButton" class="button hidden">Ruffle</button>
+  <audio id="idiotAudio" src="https://ia600208.us.archive.org/35/items/youareanidiotgif/You%20are%20an%20idiot%21%21.mp3" loop></audio>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // some random text when u open the site 
+    var phrases = [
+        "Chatty changed these lol",
+    "helo",
+    "whats up man",
+    "iready suck",
+    "meeeeee",
+        "Back and even better than ever before!",
+    "hluf",
+        "Everyone's a rizzed up crank",
+        "If you get this message, you are fat",
+    "what",                                                                     
+        "Sponsered by me lol",
+    "sponsored by youtube",
+        "We got in trouble for this lol",
+	"Show me your meat or im gonna crash outtttttttt",
+    "Tab cloak me!",
+    "hlrugvuj8idfhu gjdfchudhfjifds",
+    "NoGuardian!",
+	"If this website ever gets leaked by my friends, I will not associate with this anymore",
+	"Fatso",
+	"updates frequently!",
+    "waaah github terminated my account :(",
+        "welcome back!",
+	"We love eaglercraft",
+	"Tab cloak! ",
+    "when you if a try be road",
+    "No illegal stuff >:(", 
+    "spotify is now unblocked!",
+    "D:",
+	":D",
+        "Not associated with the illegals",
+        "Why did they get rid of Unblocked Games 76 ;-;",
+        "Looking into this code, there is lots of secrets lol",
+        "glug glug glug",
+	"Let me think about that",
+    "Made with extra HTML!",
+    "no more C++!",
+	"I know",
+    "wuh",
+	"I am not a robot",
+	"hey man, i just wanted to tell you that this is nerdy",
+	"like the last website, but more games",
+    "skibidi iready",
+    "someone saw a reindeer, someone saw jamal!",
+    "someone saw a reindeer, someone saw 'em all!",
+	"bro who snitched lol",
+	"who used late night chat like what",
+	"That is not iron man that is metal boy",
+    "hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
+	"i have not found any secrets in this code",
+	";)",
+      ];
+
+      var randomIndex = Math.floor(Math.random() * phrases.length);
+      var randomPhrase = phrases[randomIndex];
+
+      var phraseElement = document.getElementById("randomPhrase");
+      phraseElement.textContent = randomPhrase;
+    });
+
+    document.getElementById("tabCloak").onclick = function() {
+      document.title = "Classes";
+      document.querySelector('link[rel="icon"]').href = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/1186px-Google_Classroom_Logo.svg.png";
+    };
+
+    document.getElementById("launchChatroom").onclick = function() {
+      document.body.innerHTML = '';
+      var passText = document.createElement("p");
+      passText.textContent = "oops";
+      passText.style.color = "#fff";
+      passText.style.marginTop = "20px";
+      document.body.appendChild(passText);
+
+      var copyButton = document.createElement("button");
+      copyButton.textContent = "oops";
+      copyButton.className = "button";
+      copyButton.onclick = function() {
+        var pass = "oops";
+        navigator.clipboard.writeText(pass).then(function() {
+          alert("Copied");
+        }, function() {
+          alert("Failed to copy password to clipboard.");
+        });
+      };
+      document.body.appendChild(copyButton);
+
+      var continueButton = document.createElement("button");
+      continueButton.textContent = "Download Eagler";
+      continueButton.className = "button";
+      continueButton.onclick = function() {
+        document.body.innerHTML = '<object id="chatroomFrame" type="text/html" data="https://eaglercraft.com/mc/1.8.8" style="width: 100%; height: 100vh;"></object>';
+      };
+      document.body.appendChild(continueButton);
+    };
+
+    // getting into the games (you can edit them and change the websites, but only some work.)
+    document.getElementById("launchGames").onclick = function() {
+      document.body.innerHTML = "";
+      setTimeout(function() {
+        var games = [
+              { name: "1v1.lol New", url: "https://1v1.lol" },
+                  { name: "1v1.lol Old", url: "https://1v1.school" },
+                      { name: "Browser", url: "https://browserling.com" },
+          { name: "Skribbl.io", url: "https://skribbl.io" },
+ 
+          { name: "Funny Shooter 2", url: "https://html5.gamedistribution.com/rvvASMiM/a1b7ac4025214a5cb0bd01a4f675513a/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ffunny-shooter-2&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvZnVubnktc2hvb3Rlci0yIiwicGFyZW50RG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsInRvcERvbWFpbiI6ImhhaGFnYW1lcy5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" },
+          { name: "Time Shooter 3", url: "https://html5.gamedistribution.com/rvvASMiM/6493b872f0564380a7adad671d1e0a57/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ftime-shooter-3%3A-swat&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvdGltZS1zaG9vdGVyLTM6LXN3YXQiLCJwYXJlbnREb21haW4iOiJoYWhhZ2FtZXMuY29tIiwidG9wRG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsImhhc0ltcHJlc3Npb24iOmZhbHNlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE3In0%253D" },
+          { name: "Movies and TV", url: "https://premiumembeding.cloud/v2/embed-4/p5MzSWUlD5jo?_debug=true" },
+
+          { name: "Minecraft", url: "https://eaglercraft-archive.github.io/Koneclient-1.8-web/" },
+          { name: "Resent Client Eagler", url: "https://reslauncher4.vercel.app" },
+          { name: "FNAW", url: "https://g.deev.is/fnaw" },
+          { name: "Neal.fun", url: "https://neal.fun" },
+          { name: "Subway Surfers", url: "https://dddavit.github.io/subway/" },
+          { name: "Slope", url: "https://mathadventure1.github.io/slope/slope/index.html" },
+          { name: "Cookie Clicker", url: "https://eli-schwartz.github.io/cookieclicker/" },
+          { name: "Drive Mad", url: "https://ubg365.github.io/drive-mad/play.html" },
+          { name: "Drive Mad Mod", url: "https://play.fancade.com/63BA239C20C40BF3" }, 
+          { name: "BitLife", url: "https://ubg365.github.io/bitlife-life-simulator/play.html" },
+          { name: "Ztype", url: "https://zty.pe" },
+          { name: "3kh0.github.io (ad spammy)", url: "https://3kh0.github.io" },
+          { name: "Hover Racer Drive", url: "https://ubg365.github.io/hover-racer-drive/" },
+          { name: "Monkey Mart", url: "https://ubg365.github.io/monkey-mart/play.html" },
+          { name: "Drift Boss", url: "https://ubg365.github.io/drift-boss/" },
+          { name: "Madalin Stunt Cars 2", url: "https://ubg100.github.io/games/Madalin/index.html" },
+          { name: "Breaking the bank", url: "https://mountain658.github.io/zbreakingthebank.html" },
+          { name: "Escaping the prison", url: "https://mountain658.github.io/zescapetheprison.html" },
+          { name: "Stealing the diamond", url: "https://mountain658.github.io/zstealingthediamond.html" },
+          { name: "Infiltrating the airship", url: "https://sz-games.github.io/games/Flash.html?game=/games/henry-airship/infiltratingtheairshipgame.swf" },
+          { name: "Fleeing the complex", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/Henry%20Stickmin%20-%20Fleeing%20the%20Complex.swf?raw=true" },
+          { name: "Free Rider", url: "https://freeriderhd.com" },
+      { name: "Minecraft 1.5", url: "https://sd592g.github.io/zj684od4lfg/" },
+          { name: "Run 3", url: "https://lekug.github.io/tn6pS9dCf37xAhkJv/" },
+          { name: "Bloxorz", url: "https://ad-freegames.github.io/flash/game/bloxorz.html" },
+          { name: "Friday Night Funkin", url: "https://boxing2.github.io/b88/friday-night-funkin/" },
+          { name: "Drift Hunters", url: "https://htmlxm.github.io/h/drift-hunters/" },
+          { name: "Venge.io", url: "https://venge.io/" },
+          { name: "Highway Racer Pro", url: "https://unblocked-games.s3.amazonaws.com/highway-racer-pro.html" }, 
+          { name: "Hole.io", url: "https://hole-io.com/" },
+          { name: "Drift Hunters 2024", url: "https://unblocked-games.s3.amazonaws.com/drift-hunters-2024.html" },
+          { name: "Webcraft", url: "https://jesgran.is-a.dev/webcraft/" }, 
+          { name: "Sandspiel Studio", url: "https://studio.sandspiel.club" },
+          { name: "Eagler 1.8 With Download", url: "https://eaglercraft.com/mc/1.8.8" },
+          { name: "FNAF", url: "https://ubg77.github.io/fix/fnaf1/" },
+          { name: "Krunker.io", url: "https://krunker.io/" },
+          { name: "Tomb of the mask", url: "https://mountain658.github.io/g/tombofthemask/index.html" },
+	  { name: "worldguessr", url: "https://www.worldguessr.com/" },
+	  { name: "MinecraftSkins.net", url: "https://minecraftskins.net" },
+	  { name: "JapanCatCam", url: "https://meow.camera/viewer/" },
+	  { name: "Skindex", url: "https://skindex.pro" },
+	  { name: "RadioStations", url: "https://radio.garden/" },
+	  { name: "Windows93Emulator", url: "https://v1.windows93.net/" },
+      { name: "Download Minecraft 1.3", url:"https://forum.wickeditor.com/uploads/short-url/HOPZ3R5eZytDkNUGwPzKJ83KJq.html" },
+	  { name: "Agario", url: "https://agar.io/" },
+	  { name: "Diep.io", url: "https://diep.io/" },
+	  { name: "Sandspiel", url: "https://sandspiel.club" },
+      { name: "Slow Roads", url: "https://slowroads.io" },
+      { name: "Edys Car Simulator", url: "https://unblocked-games.s3.amazonaws.com/edys-car-simulator.html" },
+      { name: "Backrooms", url: "https://adfree3kh0.github.io/projects/backrooms/index.html" },
+      { name: "Impossible Quiz", url: "https://adfree3kh0.github.io/projects/impossiblequiz/index.html" },
+      { name: "Among Us Singleplayer", url: "https://adfree3kh0.github.io/projects/among-us/index.html" }, 
+      { name: "Windows XP Emulator", url: "https://winxp.vercel.app/" },
+      { name: "Eggy Car", url: "https://www.yurk.com/games/eggycar/" },
+      { name: "Selenite Games", url: "https://selenite.is-a.dev" },
+      { name: "Turbowarp Packager (Download Scratch Projects)", url: "https://packager.turbowarp.org" },
+    ];
+        var container = document.createElement("div");
+        container.setAttribute("id", "gamesContainer");
+        document.body.appendChild(container);
+
+        games.forEach(function(game) {
+          var button = document.createElement("button");
+          button.textContent = game.name;
+          button.className = "button";
+          button.onclick = function() {
+            document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
+          };
+          container.appendChild(button);
+        });
+      }, 1000);
+    };
+
+    document.getElementById("launchApps").onclick = function() {
+      document.querySelectorAll('.button').forEach(function(button) {
+        button.classList.add('hidden');
+      });
+      document.querySelectorAll('h1, #randomPhrase').forEach(function(element) {
+        element.classList.add('hidden');
+      });
+      setTimeout(function() {
+        document.getElementById('ruffleButton').classList.remove('hidden');
+        // Adding the Kahoot.rocks button
+        var kahootRocksButton = document.createElement("button");
+        kahootRocksButton.textContent = "Kahoot.rocks";
+        kahootRocksButton.className = "button";
+        kahootRocksButton.onclick = function() {
+          document.body.innerHTML = '<object id="kahootRocksFrame" type="text/html" data="https://kahoot.rocks/" style="width: 100%; height: 100vh;"></object>';
+        };
+        document.body.appendChild(kahootRocksButton);
+
+        // Adding the ChatGPT button
+        var chatGPTButton = document.createElement("button");
+        chatGPTButton.textContent = "ChatGPT";
+        chatGPTButton.className = "button";
+        chatGPTButton.onclick = function() {
+          document.body.innerHTML = '<object id="chatGPTFrame" type="text/html" data="https://chatgptfree.ai/chat/" style="width: 100%; height: 100vh;"></object>';
+        };
+        document.body.appendChild(chatGPTButton);
+
+	 // Adding the Meow Camera button
+        var MeowCameraButton = document.createElement("button");
+        MeowCameraButton.textContent = "MeowCamera";
+        MeowCameraButton.className = "button";
+        MeowCameraButton.onclick = function() {
+          document.body.innerHTML = '<object id="chatGPTFrame" type="text/html" data="https://meow.camera/viewer/" style="width: 100%; height: 100vh;"></object>';
+        };
+        document.body.appendChild(chatGPTButton);
+    // Adding the FreezeNova button
+        var FreezeNova = document.createElement("button");
+        FreezeNova.textContent = "FreezeNova";
+        FreezeNova.className = "button";
+        FreezeNova.onclick = function() {
+          document.body.innerHTML = '<object id="FreezeNovaFrame" type="text/html" data="https://unblocked-games.s3.amazonaws.com/index.html" style="width: 100%; height: 100vh;"></object>';
+        };
+        document.body.appendChild(FreezeNova);
+
+        // Adding the Emulator button
+        var emulatorButton = document.createElement("button");
+        emulatorButton.textContent = "Emulator";
+        emulatorButton.className = "button";
+        emulatorButton.onclick = function() {
+          document.body.innerHTML = '<object id="emulatorFrame" type="text/html" data="https://demo.emulatorjs.org/" style="width: 100%; height: 100vh;"></object>';
+        };
+        document.body.appendChild(emulatorButton);
+
+        // Adding the :) button
+        var smileButton = document.createElement("button");
+        smileButton.textContent = ":) (this is a virus lol)";
+        smileButton.className = "button";
+        smileButton.id = "smileButton";
+        document.body.appendChild(smileButton);
+
+        document.getElementById("smileButton").onclick = function() {
+          // Clear existing content
+          document.body.innerHTML = '';
+
+          // Create object element
+          var objectElement = document.createElement("object");
+          objectElement.setAttribute("type", "text/html");
+          objectElement.setAttribute("data", "https://theaviary.me/Idiot!/Converted/html5-via-AdobeAnimate/YouAreAnIdiot!-html5-conversion-via-Adobe-Animate.html");
+          objectElement.setAttribute("style", "width: 100%; height: 100%; position: fixed; top: 0; left: 0; border: none;");
+
+          // Append object to body
+          document.body.appendChild(objectElement);
+        };
+      }, 1000);
+    };
+
+    document.getElementById("continueButton").onclick = function() {
+      document.querySelectorAll('.button, h1, #randomPhrase, #instructions').forEach(function(element) {
+        element.classList.add('hidden');
+      });
+      document.body.innerHTML = '<object id="unblockerFrame" type="text/html" data="https://bing.com/" style="width: 100%; height: 100vh;"></object>';
+    };
+
+    document.getElementById("ruffleButton").onclick = function() {
+      document.body.innerHTML = '<object id="ruffleFrame" type="text/html" data="https://ruffle.rs/demo/" style="width: 100%; height: 100vh;"></object>';
+    };
+  </script>
+</body>
+</html>
