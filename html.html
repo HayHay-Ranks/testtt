@@ -68,10 +68,30 @@ background-repeat: no-repeat;
 <button id="ruffleButton" class="button hidden">Ruffle</button>
 
 <script>
-  document.getElementById("tabCloak").onclick = function() {
-    document.title = "Classes";
-    document.querySelector('link[rel="icon"]').href = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/1186px-Google_Classroom_Logo.svg.png";
-  };
+  // Function to render the main screen (home screen)
+  function createMainScreen() {
+    document.body.innerHTML = `
+      <h1>Testing Website</h1>
+      <button id="tabCloak" class="button">Rename Tab</button>
+      <button id="launchShooting" class="button">Shooting</button>
+      <button id="launchDriving" class="button">Driving</button>
+      <button id="launchGames" class="button">Other Games</button>
+      <button id="launchApps" class="button">Apps</button>
+      <button id="ruffleButton" class="button hidden">Ruffle</button>
+    `;
+
+    // Re-attach the click handlers to the buttons
+    document.getElementById("tabCloak").onclick = function() {
+      document.title = "Classes";
+      document.querySelector('link[rel="icon"]').href = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/1186px-Google_Classroom_Logo.svg.png";
+    };
+
+    document.getElementById("launchGames").onclick = function() {
+      createGameButtons(); // Go to the game list screen
+    };
+
+    // Add more event handlers for other buttons (Shooting, Driving, Apps) if necessary
+  }
 
   // Function to create the game buttons
   function createGameButtons() {
@@ -90,14 +110,8 @@ background-repeat: no-repeat;
       { name: "Neal.fun", url: "https://neal.fun" },
       { name: "Subway Surfers", url: "https://dddavit.github.io/subway/" },
       { name: "Slope", url: "https://mathadventure1.github.io/slope/slope/index.html" },
-      { name: "Cookie Clicker", url: "https://eli-schwartz.github.io/cookieclicker/" },
-      { name: "BitLife", url: "https://ubg365.github.io/bitlife-life-simulator/play.html" },
-      { name: "Ztype", url: "https://zty.pe" },
-      { name: "Monkey Mart", url: "https://ubg365.github.io/monkey-mart/play.html" },
-      { name: "Friday Night Funkin", url: "https://boxing2.github.io/b88/friday-night-funkin/" },
-      { name: "FNAF", url: "https://ubg77.github.io/fix/fnaf1/" },
-      { name: "Diep.io", url: "https://diep.io/" },
-      { name: "Sandspiel", url: "https://sandspiel.club" }
+      { name: "Cookie Clicker", url: "https://eli-schwartz.github.io/cookieclicker/" }
+      // Add other games here
     ];
 
     games.forEach(function(game) {
@@ -109,6 +123,8 @@ background-repeat: no-repeat;
       };
       container.appendChild(button);
     });
+
+    createReturnButton(); // Show return button when on game list screen
   }
 
   // Function to load the selected game and show the return button
@@ -122,13 +138,13 @@ background-repeat: no-repeat;
     objectTag.style.height = "100vh";
     document.body.appendChild(objectTag);
 
-    createReturnButton(); // Add return button
+    createReturnButton(); // Show return button when inside a game
   }
 
   // Function to create the return button
   function createReturnButton() {
     var returnButton = document.createElement("button");
-    returnButton.textContent = "Return to Game List";
+    returnButton.textContent = "Return to Main Screen";
     returnButton.className = "button";
     returnButton.style.position = "fixed";
     returnButton.style.bottom = "10px";
@@ -137,15 +153,13 @@ background-repeat: no-repeat;
     returnButton.style.padding = "10px"; // Add some padding for better visibility
     returnButton.style.backgroundColor = "#f0f0f0"; // Optional: Style the button background
     returnButton.onclick = function() {
-      createGameButtons(); // Recreate the game buttons when returning
+      createMainScreen(); // Return to the main screen
     };
     document.body.appendChild(returnButton); // Append the return button to the body
   }
 
-  // Initialize the game list when "launchGames" is clicked
-  document.getElementById("launchGames").onclick = function() {
-    createGameButtons(); // Create the game buttons initially
-  };
+  // Initialize the main screen when the page loads
+  createMainScreen();
     document.getElementById("launchShooting").onclick = function() {
       document.body.innerHTML = "";
       setTimeout(function() {
