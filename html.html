@@ -57,79 +57,16 @@ background-repeat: no-repeat;
     
     </head>
 <body>
-  <h1>funny</h1>
+  <h1>Testing Website</h1>
   <button id="tabCloak" class="button">Rename Tab</button>
-  <button id="launchGames" class="button">Games</button>
+  
+  <button id="launchShooting" class="button">Shooting</button>
+  <button id="launchDriving" class="button">Driving</button>
+  <button id="launchGames" class="button">Other Games</button>
+
   <button id="launchApps" class="button">Apps</button>
-  <div id="instructions" class="hidden">
-    <h2>READ THIS</h2>
-    <p>This is a huge work in progress. If anything gets blocked, follow these steps:<br>Restart your device ( Make sure the screen turns black, do power button + refresh key on chromebook )<br>DON'T restore tabs, open this file again, and nothing should be blocked. If it's still blocked, play the games and apps because they can't be blocked.<br>Sorry for the yapping, thanks :D - British Man</p>
-    <button id="continueButton" class="button">Continue</button>
-  </div>
   <button id="ruffleButton" class="button hidden">Ruffle</button>
-  <audio id="idiotAudio" src="https://ia600208.us.archive.org/35/items/youareanidiotgif/You%20are%20an%20idiot%21%21.mp3" loop></audio>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    // some random text when u open the site 
-    var phrases = [
-        "Chatty changed these lol",
-    "helo",
-    "whats up man",
-    "iready suck",
-    "meeeeee",
-        "Back and even better than ever before!",
-    "hluf",
-        "Everyone's a rizzed up crank",
-        "If you get this message, you are fat",
-    "what",                                                                     
-        "Sponsered by me lol",
-    "sponsored by youtube",
-        "We got in trouble for this lol",
-	"Show me your meat or im gonna crash outtttttttt",
-    "Tab cloak me!",
-    "hlrugvuj8idfhu gjdfchudhfjifds",
-    "NoGuardian!",
-	"If this website ever gets leaked by my friends, I will not associate with this anymore",
-	"Fatso",
-	"updates frequently!",
-    "waaah github terminated my account :(",
-        "welcome back!",
-	"We love eaglercraft",
-	"Tab cloak! ",
-    "when you if a try be road",
-    "No illegal stuff >:(", 
-    "spotify is now unblocked!",
-    "D:",
-	":D",
-        "Not associated with the illegals",
-        "Why did they get rid of Unblocked Games 76 ;-;",
-        "Looking into this code, there is lots of secrets lol",
-        "glug glug glug",
-	"Let me think about that",
-    "Made with extra HTML!",
-    "no more C++!",
-	"I know",
-    "wuh",
-	"I am not a robot",
-	"hey man, i just wanted to tell you that this is nerdy",
-	"like the last website, but more games",
-    "skibidi iready",
-    "someone saw a reindeer, someone saw jamal!",
-    "someone saw a reindeer, someone saw 'em all!",
-	"bro who snitched lol",
-	"who used late night chat like what",
-	"That is not iron man that is metal boy",
-    "hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
-	"i have not found any secrets in this code",
-	";)",
-      ];
-
-      var randomIndex = Math.floor(Math.random() * phrases.length);
-      var randomPhrase = phrases[randomIndex];
-
-      var phraseElement = document.getElementById("randomPhrase");
-      phraseElement.textContent = randomPhrase;
-    });
 
     document.getElementById("tabCloak").onclick = function() {
       document.title = "Classes";
@@ -141,18 +78,11 @@ background-repeat: no-repeat;
       document.body.innerHTML = "";
       setTimeout(function() {
         var games = [
-              { name: "1v1.lol New", url: "https://1v1.lol" },
-                  { name: "1v1.lol Old", url: "https://1v1.school" },
-                      { name: "Browser", url: "https://browserling.com" },
-          { name: "Skribbl.io", url: "https://skribbl.io" },
-          { name: "Drift Hunters", url: "https://static.hahagames.com/game/2023/02/25/d2b27a69-567d-4fe0-8615-8f4e2337d8c4/" },
 
-          { name: "Funny Shooter 2", url: "https://html5.gamedistribution.com/rvvASMiM/a1b7ac4025214a5cb0bd01a4f675513a/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ffunny-shooter-2&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvZnVubnktc2hvb3Rlci0yIiwicGFyZW50RG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsInRvcERvbWFpbiI6ImhhaGFnYW1lcy5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" },
-          { name: "Time Shooter 3", url: "https://html5.gamedistribution.com/rvvASMiM/6493b872f0564380a7adad671d1e0a57/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ftime-shooter-3%3A-swat&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvdGltZS1zaG9vdGVyLTM6LXN3YXQiLCJwYXJlbnREb21haW4iOiJoYWhhZ2FtZXMuY29tIiwidG9wRG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsImhhc0ltcHJlc3Npb24iOmZhbHNlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE3In0%253D" },
-          { name: "Pixel Shooter", url: "https://app-215632.games.s3.yandex.net/215632/2l6gf6mpiczu0hnbw8dxvxnp50jioafk/index.html?is-united-page=1&skip-guard=1&header=no&clid=4865623&flags=%7B%22adv_sticky_banner_disabled%22%3Atrue%7D&sdk=%2Fsdk%2F_%2Fv2.cee7c958a9eca93a3ec0.js#origin=https%3A%2F%2Fplayhop.com&app-id=215632&device-type=desktop" },
+          { name: "Skribbl.io", url: "https://skribbl.io" },
+
           { name: "Minecraft", url: "https://eaglercraft-archive.github.io/Koneclient-1.8-web/" },
           { name: "Resent Client Eagler", url: "https://reslauncher4.vercel.app" },
-	{ name: "Traffic Jam 3D", url: "https://html5.gamedistribution.com/337302b23b5943d8bcfc501d81d50cdb/?gd_sdk_referrer_url=https://www.hahagames.com/game/traffic-jam-3d" },
           { name: "Paper.io 2", url: "https://paperio.site/index-gm.php?gamedomain=hahagames.com9" },
 
           { name: "FNAW", url: "https://g.deev.is/fnaw" },
@@ -160,48 +90,32 @@ background-repeat: no-repeat;
           { name: "Subway Surfers", url: "https://dddavit.github.io/subway/" },
           { name: "Slope", url: "https://mathadventure1.github.io/slope/slope/index.html" },
           { name: "Cookie Clicker", url: "https://eli-schwartz.github.io/cookieclicker/" },
-          { name: "Drive Mad", url: "https://ubg365.github.io/drive-mad/play.html" },
-          { name: "Drive Mad Mod", url: "https://play.fancade.com/63BA239C20C40BF3" }, 
+
           { name: "BitLife", url: "https://ubg365.github.io/bitlife-life-simulator/play.html" },
           { name: "Ztype", url: "https://zty.pe" },
           { name: "3kh0.github.io (ad spammy)", url: "https://3kh0.github.io" },
-          { name: "Hover Racer Drive", url: "https://ubg365.github.io/hover-racer-drive/" },
           { name: "Monkey Mart", url: "https://ubg365.github.io/monkey-mart/play.html" },
-          { name: "Drift Boss", url: "https://ubg365.github.io/drift-boss/" },
-          { name: "Madalin Stunt Cars 2", url: "https://ubg100.github.io/games/Madalin/index.html" },
+
           { name: "Breaking the bank", url: "https://mountain658.github.io/zbreakingthebank.html" },
           { name: "Escaping the prison", url: "https://mountain658.github.io/zescapetheprison.html" },
           { name: "Stealing the diamond", url: "https://mountain658.github.io/zstealingthediamond.html" },
           { name: "Infiltrating the airship", url: "https://sz-games.github.io/games/Flash.html?game=/games/henry-airship/infiltratingtheairshipgame.swf" },
           { name: "Fleeing the complex", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/Henry%20Stickmin%20-%20Fleeing%20the%20Complex.swf?raw=true" },
           { name: "Free Rider", url: "https://freeriderhd.com" },
-      { name: "Minecraft 1.5", url: "https://sd592g.github.io/zj684od4lfg/" },
           { name: "Run 3", url: "https://lekug.github.io/tn6pS9dCf37xAhkJv/" },
           { name: "Bloxorz", url: "https://ad-freegames.github.io/flash/game/bloxorz.html" },
           { name: "Friday Night Funkin", url: "https://boxing2.github.io/b88/friday-night-funkin/" },
-          { name: "Drift Hunters", url: "https://htmlxm.github.io/h/drift-hunters/" },
-          { name: "Venge.io", url: "https://venge.io/" },
-          { name: "Highway Racer Pro", url: "https://unblocked-games.s3.amazonaws.com/highway-racer-pro.html" }, 
           { name: "Hole.io", url: "https://hole-io.com/" },
-          { name: "Drift Hunters 2024", url: "https://unblocked-games.s3.amazonaws.com/drift-hunters-2024.html" },
           { name: "Webcraft", url: "https://jesgran.is-a.dev/webcraft/" }, 
           { name: "Sandspiel Studio", url: "https://studio.sandspiel.club" },
           { name: "Eagler 1.8 With Download", url: "https://eaglercraft.com/mc/1.8.8" },
           { name: "FNAF", url: "https://ubg77.github.io/fix/fnaf1/" },
-          { name: "Krunker.io", url: "https://krunker.io/" },
           { name: "Tomb of the mask", url: "https://mountain658.github.io/g/tombofthemask/index.html" },
 	  { name: "worldguessr", url: "https://www.worldguessr.com/" },
-	  { name: "MinecraftSkins.net", url: "https://minecraftskins.net" },
-	  { name: "JapanCatCam", url: "https://meow.camera/viewer/" },
-	  { name: "Skindex", url: "https://skindex.pro" },
-	  { name: "RadioStations", url: "https://radio.garden/" },
 	  { name: "Windows93Emulator", url: "https://v1.windows93.net/" },
       { name: "Download Minecraft 1.3", url:"https://forum.wickeditor.com/uploads/short-url/HOPZ3R5eZytDkNUGwPzKJ83KJq.html" },
-	  { name: "Agario", url: "https://agar.io/" },
 	  { name: "Diep.io", url: "https://diep.io/" },
 	  { name: "Sandspiel", url: "https://sandspiel.club" },
-      { name: "Slow Roads", url: "https://slowroads.io" },
-      { name: "Edys Car Simulator", url: "https://unblocked-games.s3.amazonaws.com/edys-car-simulator.html" },
       { name: "Backrooms", url: "https://adfree3kh0.github.io/projects/backrooms/index.html" },
       { name: "Impossible Quiz", url: "https://adfree3kh0.github.io/projects/impossiblequiz/index.html" },
       { name: "Among Us Singleplayer", url: "https://adfree3kh0.github.io/projects/among-us/index.html" }, 
@@ -209,6 +123,7 @@ background-repeat: no-repeat;
       { name: "Eggy Car", url: "https://www.yurk.com/games/eggycar/" },
       { name: "Selenite Games", url: "https://selenite.is-a.dev" },
       { name: "Turbowarp Packager (Download Scratch Projects)", url: "https://packager.turbowarp.org" },
+    
     ];
         var container = document.createElement("div");
         container.setAttribute("id", "gamesContainer");
@@ -225,7 +140,68 @@ background-repeat: no-repeat;
         });
       }, 1000);
     };
+    document.getElementById("launchShooting").onclick = function() {
+      document.body.innerHTML = "";
+      setTimeout(function() {
+        var games = [
+              { name: "1v1.lol New", url: "https://1v1.lol" },
+                  { name: "1v1.lol Old", url: "https://1v1.school" },
 
+          { name: "Funny Shooter 2", url: "https://html5.gamedistribution.com/rvvASMiM/a1b7ac4025214a5cb0bd01a4f675513a/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ffunny-shooter-2&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvZnVubnktc2hvb3Rlci0yIiwicGFyZW50RG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsInRvcERvbWFpbiI6ImhhaGFnYW1lcy5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9" },
+          { name: "Time Shooter 3", url: "https://html5.gamedistribution.com/rvvASMiM/6493b872f0564380a7adad671d1e0a57/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.hahagames.com%2Fgame%2Ftime-shooter-3%3A-swat&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5oYWhhZ2FtZXMuY29tL2dhbWUvdGltZS1zaG9vdGVyLTM6LXN3YXQiLCJwYXJlbnREb21haW4iOiJoYWhhZ2FtZXMuY29tIiwidG9wRG9tYWluIjoiaGFoYWdhbWVzLmNvbSIsImhhc0ltcHJlc3Npb24iOmZhbHNlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE3In0%253D" },
+          { name: "Pixel Shooter", url: "https://app-215632.games.s3.yandex.net/215632/2l6gf6mpiczu0hnbw8dxvxnp50jioafk/index.html?is-united-page=1&skip-guard=1&header=no&clid=4865623&flags=%7B%22adv_sticky_banner_disabled%22%3Atrue%7D&sdk=%2Fsdk%2F_%2Fv2.cee7c958a9eca93a3ec0.js#origin=https%3A%2F%2Fplayhop.com&app-id=215632&device-type=desktop" },
+
+         
+          { name: "Venge.io", url: "https://venge.io/" },
+          
+          { name: "Krunker.io", url: "https://krunker.io/" },
+          
+    ];
+        var container = document.createElement("div");
+        container.setAttribute("id", "gamesContainer");
+        document.body.appendChild(container);
+
+        games.forEach(function(game) {
+          var button = document.createElement("button");
+          button.textContent = game.name;
+          button.className = "button";
+          button.onclick = function() {
+            document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
+          };
+          container.appendChild(button);
+        });
+      }, 1000);
+    };
+    document.getElementById("launchDriving").onclick = function() {
+      document.body.innerHTML = "";
+      setTimeout(function() {
+        var games = [
+      { name: "Edys Car Simulator", url: "https://unblocked-games.s3.amazonaws.com/edys-car-simulator.html" },
+      { name: "Drift Hunters", url: "https://static.hahagames.com/game/2023/02/25/d2b27a69-567d-4fe0-8615-8f4e2337d8c4/" },
+      { name: "Slow Roads", url: "https://slowroads.io" },
+      { name: "Drive Mad", url: "https://ubg365.github.io/drive-mad/play.html" },
+      { name: "Drive Mad Mod", url: "https://play.fancade.com/63BA239C20C40BF3" }, 
+                    { name: "Drift Boss", url: "https://ubg365.github.io/drift-boss/" },
+          { name: "Madalin Stunt Cars 2", url: "https://ubg100.github.io/games/Madalin/index.html" },
+              { name: "Hover Racer Drive", url: "https://ubg365.github.io/hover-racer-drive/" },
+          { name: "Highway Racer Pro", url: "https://unblocked-games.s3.amazonaws.com/highway-racer-pro.html" }, 
+
+    ];
+        var container = document.createElement("div");
+        container.setAttribute("id", "gamesContainer");
+        document.body.appendChild(container);
+
+        games.forEach(function(game) {
+          var button = document.createElement("button");
+          button.textContent = game.name;
+          button.className = "button";
+          button.onclick = function() {
+            document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
+          };
+          container.appendChild(button);
+        });
+      }, 1000);
+    };
     document.getElementById("launchApps").onclick = function() {
       document.querySelectorAll('.button').forEach(function(button) {
         button.classList.add('hidden');
@@ -234,8 +210,15 @@ background-repeat: no-repeat;
         element.classList.add('hidden');
       });
       setTimeout(function() {
-        document.getElementById('ruffleButton').classList.remove('hidden');
         // Adding the Kahoot.rocks button
+            // Adding the ChatGPT button
+        var websiteButton = document.createElement("button");
+        websiteButton.textContent = "Online Website (3 MIN UNBLOCKED)";
+        websiteButton.className = "button";
+        websiteButton.onclick = function() {
+          document.body.innerHTML = '<object id="websiteFrame" type="text/html" data="https://browserling.com" style="width: 100%; height: 100vh;"></object>';
+        };
+        document.body.appendChild(websiteButton);
         var kahootRocksButton = document.createElement("button");
         kahootRocksButton.textContent = "Kahoot.rocks";
         kahootRocksButton.className = "button";
@@ -285,26 +268,7 @@ background-repeat: no-repeat;
         };
         document.body.appendChild(emulatorButton);
 
-        // Adding the :) button
-        var smileButton = document.createElement("button");
-        smileButton.textContent = ":) (this is a virus lol)";
-        smileButton.className = "button";
-        smileButton.id = "smileButton";
-        document.body.appendChild(smileButton);
 
-        document.getElementById("smileButton").onclick = function() {
-          // Clear existing content
-          document.body.innerHTML = '';
-
-          // Create object element
-          var objectElement = document.createElement("object");
-          objectElement.setAttribute("type", "text/html");
-          objectElement.setAttribute("data", "https://theaviary.me/Idiot!/Converted/html5-via-AdobeAnimate/YouAreAnIdiot!-html5-conversion-via-Adobe-Animate.html");
-          objectElement.setAttribute("style", "width: 100%; height: 100%; position: fixed; top: 0; left: 0; border: none;");
-
-          // Append object to body
-          document.body.appendChild(objectElement);
-        };
       }, 1000);
     };
 
