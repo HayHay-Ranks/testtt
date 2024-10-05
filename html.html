@@ -58,88 +58,105 @@ background-repeat: no-repeat;
     </head>
 <body>
   <h1>Testing Website</h1>
-  <button id="tabCloak" class="button">Rename Tab</button>
-  
-  <button id="launchShooting" class="button">Shooting</button>
-  <button id="launchDriving" class="button">Driving</button>
-  <button id="launchGames" class="button">Other Games</button>
+<button id="tabCloak" class="button">Rename Tab</button>
 
-  <button id="launchApps" class="button">Apps</button>
-  <button id="ruffleButton" class="button hidden">Ruffle</button>
-  <script>
+<button id="launchShooting" class="button">Shooting</button>
+<button id="launchDriving" class="button">Driving</button>
+<button id="launchGames" class="button">Other Games</button>
 
-    document.getElementById("tabCloak").onclick = function() {
-      document.title = "Classes";
-      document.querySelector('link[rel="icon"]').href = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/1186px-Google_Classroom_Logo.svg.png";
-    };
+<button id="launchApps" class="button">Apps</button>
+<button id="ruffleButton" class="button hidden">Ruffle</button>
 
-    // getting into the games (you can edit them and change the websites, but only some work.)
-    document.getElementById("launchGames").onclick = function() {
-      document.body.innerHTML = "";
-      setTimeout(function() {
-        var games = [
+<script>
+  document.getElementById("tabCloak").onclick = function() {
+    document.title = "Classes";
+    document.querySelector('link[rel="icon"]').href = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/1186px-Google_Classroom_Logo.svg.png";
+  };
 
-          { name: "Skribbl.io", url: "https://skribbl.io" },
-
-          { name: "Minecraft", url: "https://eaglercraft-archive.github.io/Koneclient-1.8-web/" },
-          { name: "Resent Client Eagler", url: "https://reslauncher4.vercel.app" },
-          { name: "Paper.io 2", url: "https://paperio.site/index-gm.php?gamedomain=hahagames.com9" },
-
-          { name: "FNAW", url: "https://g.deev.is/fnaw" },
-          { name: "Neal.fun", url: "https://neal.fun" },
-          { name: "Subway Surfers", url: "https://dddavit.github.io/subway/" },
-          { name: "Slope", url: "https://mathadventure1.github.io/slope/slope/index.html" },
-          { name: "Cookie Clicker", url: "https://eli-schwartz.github.io/cookieclicker/" },
-
-          { name: "BitLife", url: "https://ubg365.github.io/bitlife-life-simulator/play.html" },
-          { name: "Ztype", url: "https://zty.pe" },
-          { name: "3kh0.github.io (ad spammy)", url: "https://3kh0.github.io" },
-          { name: "Monkey Mart", url: "https://ubg365.github.io/monkey-mart/play.html" },
-
-          { name: "Breaking the bank", url: "https://mountain658.github.io/zbreakingthebank.html" },
-          { name: "Escaping the prison", url: "https://mountain658.github.io/zescapetheprison.html" },
-          { name: "Stealing the diamond", url: "https://mountain658.github.io/zstealingthediamond.html" },
-          { name: "Infiltrating the airship", url: "https://sz-games.github.io/games/Flash.html?game=/games/henry-airship/infiltratingtheairshipgame.swf" },
-          { name: "Fleeing the complex", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/Henry%20Stickmin%20-%20Fleeing%20the%20Complex.swf?raw=true" },
-          { name: "Free Rider", url: "https://freeriderhd.com" },
-          { name: "Run 3", url: "https://lekug.github.io/tn6pS9dCf37xAhkJv/" },
-          { name: "Bloxorz", url: "https://ad-freegames.github.io/flash/game/bloxorz.html" },
-          { name: "Friday Night Funkin", url: "https://boxing2.github.io/b88/friday-night-funkin/" },
-          { name: "Hole.io", url: "https://hole-io.com/" },
-          { name: "Webcraft", url: "https://jesgran.is-a.dev/webcraft/" }, 
-          { name: "Sandspiel Studio", url: "https://studio.sandspiel.club" },
-          { name: "Eagler 1.8 With Download", url: "https://eaglercraft.com/mc/1.8.8" },
-          { name: "FNAF", url: "https://ubg77.github.io/fix/fnaf1/" },
-          { name: "Tomb of the mask", url: "https://mountain658.github.io/g/tombofthemask/index.html" },
-	  { name: "worldguessr", url: "https://www.worldguessr.com/" },
-	  { name: "Windows93Emulator", url: "https://v1.windows93.net/" },
+  // Function to create the game buttons
+  function createGameButtons() {
+    var games = [
+      { name: "Skribbl.io", url: "https://skribbl.io" },
+      { name: "Minecraft", url: "https://eaglercraft-archive.github.io/Koneclient-1.8-web/" },
+      { name: "Resent Client Eagler", url: "https://reslauncher4.vercel.app" },
+      { name: "Paper.io 2", url: "https://paperio.site/index-gm.php?gamedomain=hahagames.com9" },
+      { name: "FNAW", url: "https://g.deev.is/fnaw" },
+      { name: "Neal.fun", url: "https://neal.fun" },
+      { name: "Subway Surfers", url: "https://dddavit.github.io/subway/" },
+      { name: "Slope", url: "https://mathadventure1.github.io/slope/slope/index.html" },
+      { name: "Cookie Clicker", url: "https://eli-schwartz.github.io/cookieclicker/" },
+      { name: "BitLife", url: "https://ubg365.github.io/bitlife-life-simulator/play.html" },
+      { name: "Ztype", url: "https://zty.pe" },
+      { name: "3kh0.github.io (ad spammy)", url: "https://3kh0.github.io" },
+      { name: "Monkey Mart", url: "https://ubg365.github.io/monkey-mart/play.html" },
+      { name: "Breaking the bank", url: "https://mountain658.github.io/zbreakingthebank.html" },
+      { name: "Escaping the prison", url: "https://mountain658.github.io/zescapetheprison.html" },
+      { name: "Stealing the diamond", url: "https://mountain658.github.io/zstealingthediamond.html" },
+      { name: "Infiltrating the airship", url: "https://sz-games.github.io/games/Flash.html?game=/games/henry-airship/infiltratingtheairshipgame.swf" },
+      { name: "Fleeing the complex", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/Henry%20Stickmin%20-%20Fleeing%20the%20Complex.swf?raw=true" },
+      { name: "Free Rider", url: "https://freeriderhd.com" },
+      { name: "Run 3", url: "https://lekug.github.io/tn6pS9dCf37xAhkJv/" },
+      { name: "Bloxorz", url: "https://ad-freegames.github.io/flash/game/bloxorz.html" },
+      { name: "Friday Night Funkin", url: "https://boxing2.github.io/b88/friday-night-funkin/" },
+      { name: "Hole.io", url: "https://hole-io.com/" },
+      { name: "Webcraft", url: "https://jesgran.is-a.dev/webcraft/" },
+      { name: "Sandspiel Studio", url: "https://studio.sandspiel.club" },
+      { name: "Eagler 1.8 With Download", url: "https://eaglercraft.com/mc/1.8.8" },
+      { name: "FNAF", url: "https://ubg77.github.io/fix/fnaf1/" },
+      { name: "Tomb of the mask", url: "https://mountain658.github.io/g/tombofthemask/index.html" },
+      { name: "worldguessr", url: "https://www.worldguessr.com/" },
+      { name: "Windows93Emulator", url: "https://v1.windows93.net/" },
       { name: "Download Minecraft 1.3", url:"https://forum.wickeditor.com/uploads/short-url/HOPZ3R5eZytDkNUGwPzKJ83KJq.html" },
-	  { name: "Diep.io", url: "https://diep.io/" },
-	  { name: "Sandspiel", url: "https://sandspiel.club" },
+      { name: "Diep.io", url: "https://diep.io/" },
+      { name: "Sandspiel", url: "https://sandspiel.club" },
       { name: "Backrooms", url: "https://adfree3kh0.github.io/projects/backrooms/index.html" },
       { name: "Impossible Quiz", url: "https://adfree3kh0.github.io/projects/impossiblequiz/index.html" },
-      { name: "Among Us Singleplayer", url: "https://adfree3kh0.github.io/projects/among-us/index.html" }, 
+      { name: "Among Us Singleplayer", url: "https://adfree3kh0.github.io/projects/among-us/index.html" },
       { name: "Windows XP Emulator", url: "https://winxp.vercel.app/" },
       { name: "Eggy Car", url: "https://www.yurk.com/games/eggycar/" },
       { name: "Selenite Games", url: "https://selenite.is-a.dev" },
       { name: "Turbowarp Packager (Download Scratch Projects)", url: "https://packager.turbowarp.org" },
-    
     ];
-        var container = document.createElement("div");
-        container.setAttribute("id", "gamesContainer");
-        document.body.appendChild(container);
+    var container = document.createElement("div");
+    container.setAttribute("id", "gamesContainer");
+    document.body.appendChild(container);
 
-        games.forEach(function(game) {
-          var button = document.createElement("button");
-          button.textContent = game.name;
-          button.className = "button";
-          button.onclick = function() {
-            document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
-          };
-          container.appendChild(button);
-        });
-      }, 1000);
+    games.forEach(function(game) {
+      var button = document.createElement("button");
+      button.textContent = game.name;
+      button.className = "button";
+      button.onclick = function() {
+        loadGame(game);
+      };
+      container.appendChild(button);
+    });
+  }
+
+  // Function to load the selected game and show the return button
+  function loadGame(game) {
+    document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
+    createReturnButton();
+  }
+
+  // Function to create the return button
+  function createReturnButton() {
+    var returnButton = document.createElement("button");
+    returnButton.textContent = "Return to Game List";
+    returnButton.className = "button";
+    returnButton.onclick = function() {
+      document.body.innerHTML = ""; // Clear the current content
+      createGameButtons(); // Recreate the game buttons
     };
+    document.body.appendChild(returnButton); // Add the return button to the page
+  }
+
+  // Initialize the game list when "launchGames" is clicked
+  document.getElementById("launchGames").onclick = function() {
+    document.body.innerHTML = ""; // Clear the content
+    setTimeout(function() {
+      createGameButtons(); // Create the game buttons
+    }, 1000);
+  };
     document.getElementById("launchShooting").onclick = function() {
       document.body.innerHTML = "";
       setTimeout(function() {
