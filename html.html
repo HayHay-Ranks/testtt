@@ -132,7 +132,10 @@ background-repeat: no-repeat;
     returnButton.className = "button";
     returnButton.style.position = "fixed";
     returnButton.style.bottom = "10px";
-    returnButton.style.right = "10px";
+    returnButton.style.left = "10px";
+    returnButton.style.zIndex = "1000"; // Ensure it stays on top of other content
+    returnButton.style.padding = "10px"; // Add some padding for better visibility
+    returnButton.style.backgroundColor = "#f0f0f0"; // Optional: Style the button background
     returnButton.onclick = function() {
       createGameButtons(); // Recreate the game buttons when returning
     };
