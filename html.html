@@ -105,63 +105,71 @@ body {
   }
     function loadOtherGames() {
     document.body.innerHTML = "";
-    setTimeout(function() {
-      var games = [
-      { name: "Skribbl.io", url: "https://skribbl.io" },
-
-      { name: "Minecraft", url: "https://eaglercraft.com/mc/1.8.8/" },
-      { name: "Modded Minecraft", url: "https://eaglercraft-archive.github.io/Koneclient-1.8-web/" },
-      { name: "Paper.io 2", url: "https://paperio.site/index-gm.php?gamedomain=hahagames.com9" },
-      { name: "FNAW", url: "https://g.deev.is/fnaw" },
-              { name: "Soccer Random", url: "https://files.twoplayergames.org/files/games/other/Soccer_Random/index.html" },
-              { name: "Basket Random", url: "https://files.twoplayergames.org/files/games/other/Basket_Random/index.html" },
-              { name: "Tennis Random", url: "https://files.twoplayergames.org/files/games/o1/Tennis_Physics/index.html" },
-              { name: "Geometry Dash", url: "https://geometrygame.org/game/geometry-dash-lite/" },
-
-      { name: "Neal.fun", url: "https://neal.fun" },
-      { name: "Subway Surfers", url: "https://dddavit.github.io/subway/" },
-          { name: "Neal.fun", url: "https://neal.fun" },
-          { name: "BitLife", url: "https://ubg365.github.io/bitlife-life-simulator/play.html" },
+setTimeout(function () {
+  var games = [
+    { name: "Skribbl.io", url: "https://skribbl.io" },
+    { name: "Minecraft", url: "https://eaglercraft.com/mc/1.8.8/" },
+    { name: "Modded Minecraft", url: "https://eaglercraft-archive.github.io/Koneclient-1.8-web/" },
+    { name: "Paper.io 2", url: "https://paperio.site/index-gm.php?gamedomain=hahagames.com9" },
+    { name: "FNAW", url: "https://g.deev.is/fnaw" },
+    { name: "Soccer Random", url: "https://files.twoplayergames.org/files/games/other/Soccer_Random/index.html" },
+    { name: "Basket Random", url: "https://files.twoplayergames.org/files/games/other/Basket_Random/index.html" },
+    { name: "Tennis Random", url: "https://files.twoplayergames.org/files/games/o1/Tennis_Physics/index.html" },
+    { name: "Geometry Dash", url: "https://geometrygame.org/game/geometry-dash-lite/" },
+    { name: "Neal.fun", url: "https://neal.fun" },
+    { name: "Subway Surfers", url: "https://dddavit.github.io/subway/" },
+    { name: "BitLife", url: "https://ubg365.github.io/bitlife-life-simulator/play.html" },
     { name: "Run 3", url: "https://lekug.github.io/tn6pS9dCf37xAhkJv/" },
-          { name: "Bloxorz", url: "https://ad-freegames.github.io/flash/game/bloxorz.html" },
-          { name: "Friday Night Funkin", url: "https://boxing2.github.io/b88/friday-night-funkin/" },
-                  { name: "Retro Bowl", url: "https://game316009.konggames.com/gamez/0031/6009/live/index.html" },
+    { name: "Bloxorz", url: "https://ad-freegames.github.io/flash/game/bloxorz.html" },
+    { name: "Friday Night Funkin", url: "https://boxing2.github.io/b88/friday-night-funkin/" },
+    { name: "Retro Bowl", url: "https://game316009.konggames.com/gamez/0031/6009/live/index.html" },
+    { name: "Hole.io", url: "https://hole-io.com/" },
+    { name: "FNAF", url: "https://ubg77.github.io/fix/fnaf1/" },
+    { name: "Tomb of the mask", url: "https://mountain658.github.io/g/tombofthemask/index.html" },
+    { name: "worldguessr", url: "https://www.worldguessr.com/" },
+    { name: "Windows93Emulator", url: "https://v1.windows93.net/" },
+    { name: "Agario", url: "https://agar.io/" },
+    { name: "Diep.io", url: "https://diep.io/" },
+    { name: "Backrooms", url: "https://adfree3kh0.github.io/projects/backrooms/index.html" },
+    { name: "Impossible Quiz", url: "https://adfree3kh0.github.io/projects/impossiblequiz/index.html" },
+    { name: "Among Us Singleplayer", url: "https://adfree3kh0.github.io/projects/among-us/index.html" },
+    { name: "Windows XP Emulator", url: "https://winxp.vercel.app/" },
+    { name: "Sandspiel", url: "https://sandspiel.club" },
+    { name: "Selenite Games", url: "https://selenite.is-a.dev" },
+    { name: "Slope", url: "https://mathadventure1.github.io/slope/slope/index.html" },
+    { name: "Cookie Clicker", url: "https://eli-schwartz.github.io/cookieclicker/" },
+    { name: "Crossy Road", url: "https://selenite.is-a.dev/semag/crossyroad/index.html" }
+  ];
 
-                  { name: "Hole.io", url: "https://hole-io.com/" },
-          { name: "FNAF", url: "https://ubg77.github.io/fix/fnaf1/" },
-  { name: "Tomb of the mask", url: "https://mountain658.github.io/g/tombofthemask/index.html" },
- { name: "worldguessr", url: "https://www.worldguessr.com/" },
-         { name: "Windows93Emulator", url: "https://v1.windows93.net/" },
-{ name: "Agario", url: "https://agar.io/" },
- { name: "Diep.io", url: "https://diep.io/" },
-        { name: "Backrooms", url: "https://adfree3kh0.github.io/projects/backrooms/index.html" },
-      { name: "Impossible Quiz", url: "https://adfree3kh0.github.io/projects/impossiblequiz/index.html" },
-      { name: "Among Us Singleplayer", url: "https://adfree3kh0.github.io/projects/among-us/index.html" },
-      { name: "Windows XP Emulator", url: "https://winxp.vercel.app/" },
- { name: "Sandspiel", url: "https://sandspiel.club" },
-              { name: "Selenite Games", url: "https://selenite.is-a.dev" },
+  var container = document.createElement("div");
+  container.setAttribute("id", "gamesContainer");
+  document.body.appendChild(container);
 
-      { name: "Slope", url: "https://mathadventure1.github.io/slope/slope/index.html" },
-      { name: "Cookie Clicker", url: "https://eli-schwartz.github.io/cookieclicker/" },
-              { name: "Crossy Road", url: "https://selenite.is-a.dev/semag/crossyroad/index.html" },
+  games.forEach(function (game) {
+    var button = document.createElement("button");
+    button.textContent = game.name;
+    button.className = "button";
+    button.onclick = function () {
+      if (game.name === "Minecraft") {
+        // Open the HTML code in a new about:blank tab
+        fetch('https://raw.githubusercontent.com/lolmanlol123/testtt/main/mine.html')
+          .then(response => response.text())
+          .then(htmlContent => {
+            const newWindow = window.open('about:blank', '_blank');
+            newWindow.document.open();
+            newWindow.document.write(htmlContent);
+            newWindow.document.close();
+          });
+      } else {
+        document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
+      }
+    };
+    container.appendChild(button);
+  });
 
-      ];
-      var container = document.createElement("div");
-      container.setAttribute("id", "gamesContainer");
-      document.body.appendChild(container);
+  createReturnButton(); // Show return button
+}, 1000);
 
-      games.forEach(function(game) {
-        var button = document.createElement("button");
-        button.textContent = game.name;
-        button.className = "button";
-        button.onclick = function() {
-          document.getElementById("gamesContainer").innerHTML = '<object id="' + game.name.replace(/ /g, "") + 'Frame" type="text/html" data="' + game.url + '" style="width: 100%; height: 100vh;"></object>';
-        };
-        container.appendChild(button);
-      });
-
-      createReturnButton(); // Show return button
-    }, 1000);
   }
   // Function to load shooting games
   function loadShootingGames() {
